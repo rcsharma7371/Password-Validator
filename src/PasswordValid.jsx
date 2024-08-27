@@ -2,7 +2,7 @@ import { useState } from "react"
 
 export default function PasswordValid(){
     let [password, setPassword] = useState("");
-    let [isStrong, setIsStrong] = useState(false);
+    let [isStrong, setIsStrong] = useState(null);
 
     let isStrongPassword = function (password) {
         let hasUpperCase = /[A-Z]/;
@@ -39,7 +39,7 @@ export default function PasswordValid(){
             <label htmlFor="password">Enter password to check strength : </label>
             <input type="text" name="password" value={password} onChange={handlePassword}/>
             {/* <p>{isStrong}</p> */}
-            <p>{isStrong ? "Password is strong":"password is weak"}</p>
+            <p>{password == "" ? null:isStrong ? "Password is strong":"password is weak"}</p>
         </div>
     )
 }
